@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import CodeBlock from '../../components/CodeBlock'
+import CodePlayground from '../../components/CodePlayground'
 import UmlDiagram from '../../components/UmlDiagram'
 
 export default function FlyweightPattern() {
@@ -61,15 +61,18 @@ class Client {
         <h2>Code Example</h2>
 
         <h3>Flyweight Interface</h3>
-        <CodeBlock language="typescript">
-          {`interface TextStyle {
+        <CodePlayground
+          label="Flyweight Interface"
+          initialCode={`interface TextStyle {
   render(char: string, position: { x: number, y: number }): string
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Concrete Flyweight</h3>
-        <CodeBlock language="typescript">
-          {`class CharacterStyle implements TextStyle {
+        <CodePlayground
+          label="Concrete Flyweight"
+          initialCode={`class CharacterStyle implements TextStyle {
   private static instances: Map<string, CharacterStyle> = new Map()
 
   private constructor(private font: string, private size: number) {}
@@ -86,11 +89,13 @@ class Client {
     return \`Rendering '\${char}' at (\${position.x}, \${position.y}) with \${this.font} \${this.size}px\`
   }
 }`}
-        </CodeBlock>
+          language="typescript"
+        />
 
         <h3>Flyweight Factory</h3>
-        <CodeBlock language="typescript">
-          {`class TextStyleFactory {
+        <CodePlayground
+          label="Flyweight Factory"
+          initialCode={`class TextStyleFactory {
   private styles: Map<string, CharacterStyle> = new Map()
 
   getStyle(font: string, size: number): CharacterStyle {
@@ -100,22 +105,24 @@ class Client {
     }
     return this.styles.get(key)!
   }
-}
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Usage</h3>
-        <CodeBlock language="typescript">
-          {`const factory = new TextStyleFactory()
+        <CodePlayground
+          label="Usage"
+          initialCode={`const factory = new TextStyleFactory()
 
 // Many characters can share the same style object
 const boldStyle = factory.getStyle('Arial', 12)
-const results = 'HELLO'.split('').map((char, i) => 
+const results = 'HELLO'.split('').map((char, i) =>
   boldStyle.render(char, { x: i * 10, y: 0 })
 )
 
 console.log(results) // All use the same boldStyle instance`}
-        </CodeBlock>
+          language="typescript"
+        />
       </div>
 
       <div className="pattern-section">

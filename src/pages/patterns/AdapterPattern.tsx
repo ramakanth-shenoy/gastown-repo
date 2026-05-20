@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import CodeBlock from '../../components/CodeBlock'
+import CodePlayground from '../../components/CodePlayground'
 import UmlDiagram from '../../components/UmlDiagram'
 
 export default function AdapterPattern() {
@@ -50,25 +50,29 @@ class Adapter {
         <h2>Code Example</h2>
 
         <h3>Target Interface</h3>
-        <CodeBlock language="typescript">
-          {`interface PaymentProcessor {
+        <CodePlayground
+          label="Target Interface"
+          initialCode={`interface PaymentProcessor {
   process(amount: number): string
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Adaptee (Incompatible Interface)</h3>
-        <CodeBlock language="typescript">
-          {`class StripePayment {
+        <CodePlayground
+          label="Adaptee (Incompatible Interface)"
+          initialCode={`class StripePayment {
   makePayment(cents: number): string {
     return \`Processed \${cents} cents via Stripe\`
   }
-}
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Adapter</h3>
-        <CodeBlock language="typescript">
-          {`class StripeAdapter implements PaymentProcessor {
+        <CodePlayground
+          label="Adapter"
+          initialCode={`class StripeAdapter implements PaymentProcessor {
   private stripe: StripePayment
 
   constructor() {
@@ -79,15 +83,17 @@ class Adapter {
     const cents = Math.round(amount * 100)
     return this.stripe.makePayment(cents)
   }
-}
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Usage</h3>
-        <CodeBlock language="typescript">
-          {`const processor: PaymentProcessor = new StripeAdapter()
+        <CodePlayground
+          label="Usage"
+          initialCode={`const processor: PaymentProcessor = new StripeAdapter()
 console.log(processor.process(99.99)) // Processed 9999 cents via Stripe`}
-        </CodeBlock>
+          language="typescript"
+        />
       </div>
 
       <div className="pattern-section">
