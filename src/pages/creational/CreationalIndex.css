@@ -1,0 +1,142 @@
+.creational-index {
+  padding: 24px 0 64px;
+}
+
+.index-header {
+  text-align: center;
+  margin-bottom: 40px;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 28px;
+    padding: 0 16px;
+  }
+}
+
+.index-title {
+  font-size: 40px;
+  letter-spacing: -1.2px;
+  margin: 0 0 12px;
+  text-align: center;
+
+  @media (max-width: 1024px) {
+    font-size: 28px;
+  }
+}
+
+.index-subtitle {
+  font-size: 17px;
+  line-height: 150%;
+  color: var(--text);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.category-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 40px;
+  margin-bottom: 16px;
+
+  @media (max-width: 1024px) {
+    padding: 0 20px;
+  }
+}
+
+.pattern-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+}
+
+.pattern-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 20px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text-h);
+  transition:
+    box-shadow 0.25s,
+    border-color 0.25s;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow);
+  }
+}
+
+.card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+
+.card-tagline {
+  font-size: 14px;
+  line-height: 140%;
+  color: var(--text);
+  margin: 0;
+}
+
+.card-short {
+  font-size: 13px;
+  color: var(--accent);
+  font-family: var(--mono);
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.overview {
+  max-width: 760px;
+  margin: 48px auto 0;
+  padding: 24px 32px;
+  border-radius: 12px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+
+  @media (max-width: 1024px) {
+    margin: 32px 20px 0;
+    padding: 20px 20px;
+  }
+}
+
+.overview-heading {
+  font-size: 18px;
+  margin: 0 0 12px;
+  text-align: left;
+}
+
+.overview p {
+  font-size: 15px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
