@@ -26,8 +26,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --focus-ring: 2px solid var(--accent);
+
   @media (max-width: 1024px) {
     font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    letter-spacing: 0.12px;
   }
 }
 
@@ -46,6 +57,55 @@
   }
 }
 
+/* ── Prefers High Color Contrast ── */
+@media (prefers-color-contrast: more) {
+  :root {
+    --text: #070707;
+    --text-h: #000000;
+    --border: #000;
+    --accent: #6a0dad;
+
+    @media (prefers-color-scheme: dark) {
+      --text: #fff;
+      --text-h: #fff;
+      --border: #fff;
+      --accent: #d4afefff;
+    }
+  }
+}
+
+/* ── Prefers Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --focus-ring: 3px solid var(--accent);
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Skip nav – already positioned inline in Layout; hide until focused ── */
+
+/* ── Land mark roles ── */
+footer[role='contentinfo'] {
+  margin-top: auto;
+}
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ── Disable text highlighting / user-select noise ── */
+::selection {
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
 #root {
   width: 1126px;
   max-width: 100%;
@@ -56,6 +116,10 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    border-inline: none;
+  }
 }
 
 body {
@@ -73,20 +137,34 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
+
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    margin: 16px 0;
+    letter-spacing: -1px;
+  }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
+
   @media (max-width: 1024px) {
     font-size: 20px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 17px;
+  }
 }
+
 p {
   margin: 0;
 }
