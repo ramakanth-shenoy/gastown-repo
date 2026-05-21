@@ -16,6 +16,8 @@ const DecoratorPattern = lazy(() => import('./pages/patterns/DecoratorPattern'))
 const FacadePattern = lazy(() => import('./pages/patterns/FacadePattern'))
 const FlyweightPattern = lazy(() => import('./pages/patterns/FlyweightPattern'))
 const ProxyPattern = lazy(() => import('./pages/patterns/ProxyPattern'))
+const AboutPage = lazy(() => import('./pages/About'))
+const HelpPage = lazy(() => import('./pages/Help'))
 
 import './App.css'
 
@@ -40,6 +42,8 @@ function App() {
             <Route path="/structural/facade" element={<FacadePattern />} />
             <Route path="/structural/flyweight" element={<FlyweightPattern />} />
             <Route path="/structural/proxy" element={<ProxyPattern />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/help" element={<HelpPage />} />
           </Routes>
         </Suspense>
       </Layout>
