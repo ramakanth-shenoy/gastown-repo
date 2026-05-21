@@ -104,6 +104,26 @@ export default function Layout({ children }: { children: ReactNode }) {
           >
             Home
           </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }: { isActive: boolean }) =>
+              `nav-link ${isActive ? 'active' : ''}`
+            }
+            onClick={() => setNavOpen(false)}
+            tabIndex={navOpen ? 0 : -1}
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/help"
+            className={({ isActive }: { isActive: boolean }) =>
+              `nav-link ${isActive ? 'active' : ''}`
+            }
+            onClick={() => setNavOpen(false)}
+            tabIndex={navOpen ? 0 : -1}
+          >
+            Help
+          </NavLink>
         </nav>
       </header>
 

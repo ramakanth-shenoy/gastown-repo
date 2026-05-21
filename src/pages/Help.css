@@ -1,0 +1,142 @@
+.help-page {
+  padding: 24px 0 48px;
+  text-align: left;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-size: 40px;
+  letter-spacing: -1.2px;
+  margin: 0 0 8px;
+}
+
+.page-tagline {
+  font-size: 18px;
+  color: var(--text);
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 48px;
+}
+
+.section-heading {
+  font-size: 22px;
+  letter-spacing: -0.44px;
+  text-align: center;
+  margin: 0 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+.section-body {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section-body p {
+  font-size: 17px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.section-body p:last-child {
+  margin-bottom: 0;
+}
+
+.subsection-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 24px 0 8px;
+}
+
+.subsection-heading:first-child {
+  margin-top: 0;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.feature-list li {
+  font-size: 17px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.feature-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.shortcut-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.shortcut-table th,
+.shortcut-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.shortcut-table th {
+  font-weight: 600;
+  color: var(--text-h);
+  background: var(--code-bg);
+}
+
+.shortcut-table kbd {
+  font-family: var(--mono);
+  font-size: 14px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  box-shadow: 0 2px 0 var(--border);
+}
+
+@media (max-width: 1024px) {
+  .page-title {
+    font-size: 28px;
+  }
+
+  .page-tagline {
+    font-size: 16px;
+  }
+
+  .section-heading {
+    font-size: 18px;
+  }
+
+  .section {
+    margin-bottom: 32px;
+  }
+
+  .shortcut-table {
+    font-size: 15px;
+  }
+
+  .shortcut-table th,
+  .shortcut-table td {
+    padding: 10px 12px;
+  }
+}
