@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import CodeBlock from '../../components/CodeBlock'
+import CodePlayground from '../../components/CodePlayground'
 import UmlDiagram from '../../components/UmlDiagram'
 
 export default function CompositePattern() {
@@ -56,28 +56,31 @@ class Composite extends Component {
         <h2>Code Example</h2>
 
         <h3>Component Interface</h3>
-        <CodeBlock language="typescript">
-          {`interface FileSystemItem {
+        <CodePlayground
+          label="Component Interface"
+          initialCode={`interface FileSystemItem {
   getSize(): number
   getName(): string
-}
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Leaf</h3>
-        <CodeBlock language="typescript">
-          {`class File implements FileSystemItem {
+        <CodePlayground
+          label="Leaf"
+          initialCode={`class File implements FileSystemItem {
   constructor(private name: string, private size: number) {}
 
   getSize(): number { return this.size }
   getName(): string { return this.name }
-}
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Composite</h3>
-        <CodeBlock language="typescript">
-          {`class Directory implements FileSystemItem {
+        <CodePlayground
+          label="Composite"
+          initialCode={`class Directory implements FileSystemItem {
   private children: FileSystemItem[] = []
 
   constructor(private name: string) {}
@@ -96,13 +99,14 @@ class Composite extends Component {
   }
 
   getName(): string { return this.name }
-}
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Usage</h3>
-        <CodeBlock language="typescript">
-          {`const root = new Directory('root')
+        <CodePlayground
+          label="Usage"
+          initialCode={`const root = new Directory('root')
 const src = new Directory('src')
 const file1 = new File('app.ts', 100)
 const file2 = new File('utils.ts', 50)
@@ -112,7 +116,8 @@ src.add(file2)
 root.add(src)
 
 console.log(root.getSize()) // 150`}
-        </CodeBlock>
+          language="typescript"
+        />
       </div>
 
       <div className="pattern-section">

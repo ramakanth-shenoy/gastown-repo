@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import CodeBlock from '../../components/CodeBlock'
+import CodePlayground from '../../components/CodePlayground'
 import UmlDiagram from '../../components/UmlDiagram'
 
 export default function DecoratorPattern() {
@@ -58,25 +58,29 @@ class ConcreteDecoratorB extends Decorator {
         <h2>Code Example</h2>
 
         <h3>Component Interface</h3>
-        <CodeBlock language="typescript">
-          {`interface Coffee {
+        <CodePlayground
+          label="Component Interface"
+          initialCode={`interface Coffee {
   cost(): number
   description(): string
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Concrete Component</h3>
-        <CodeBlock language="typescript">
-          {`class SimpleCoffee implements Coffee {
+        <CodePlayground
+          label="Concrete Component"
+          initialCode={`class SimpleCoffee implements Coffee {
   cost(): number { return 2 }
   description(): string { return 'Simple coffee' }
-}
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Base Decorator</h3>
-        <CodeBlock language="typescript">
-          {`class CoffeeDecorator implements Coffee {
+        <CodePlayground
+          label="Base Decorator"
+          initialCode={`class CoffeeDecorator implements Coffee {
   protected coffee: Coffee
 
   constructor(coffee: Coffee) {
@@ -85,13 +89,14 @@ class ConcreteDecoratorB extends Decorator {
 
   cost(): number { return this.coffee.cost() }
   description(): string { return this.coffee.description() }
-}
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Concrete Decorators</h3>
-        <CodeBlock language="typescript">
-          {`class MilkDecorator extends CoffeeDecorator {
+        <CodePlayground
+          label="Concrete Decorators"
+          initialCode={`class MilkDecorator extends CoffeeDecorator {
   cost(): number { return this.coffee.cost() + 0.5 }
   description(): string { return this.coffee.description() + ', milk' }
 }
@@ -105,18 +110,21 @@ class WhipDecorator extends CoffeeDecorator {
   cost(): number { return this.coffee.cost() + 0.7 }
   description(): string { return this.coffee.description() + ', whip' }
 }`}
-        </CodeBlock>
+          language="typescript"
+        />
 
         <h3>Usage</h3>
-        <CodeBlock language="typescript">
-          {`let coffee: Coffee = new SimpleCoffee()
+        <CodePlayground
+          label="Usage"
+          initialCode={`let coffee: Coffee = new SimpleCoffee()
 coffee = new MilkDecorator(coffee)
 coffee = new SugarDecorator(coffee)
 coffee = new WhipDecorator(coffee)
 
 console.log(coffee.description()) // Simple coffee, milk, sugar, whip
 console.log(coffee.cost()) // 3.4`}
-        </CodeBlock>
+          language="typescript"
+        />
       </div>
 
       <div className="pattern-section">

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import CodeBlock from '../../components/CodeBlock'
+import CodePlayground from '../../components/CodePlayground'
 import UmlDiagram from '../../components/UmlDiagram'
 
 export default function FacadePattern() {
@@ -55,8 +55,9 @@ class Client {
         <h2>Code Example</h2>
 
         <h3>Complex Subsystems</h3>
-        <CodeBlock language="typescript">
-          {`class Amplifier {
+        <CodePlayground
+          label="Complex Subsystems"
+          initialCode={`class Amplifier {
   turnOn() { console.log('Amplifier on') }
   setVolume(level: number) { console.log(\`Volume: \${level}\`) }
 }
@@ -73,13 +74,14 @@ class Projector {
 
 class Screen {
   down() { console.log('Screen down') }
-}
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Facade</h3>
-        <CodeBlock language="typescript">
-          {`class HomeTheaterFacade {
+        <CodePlayground
+          label="Facade"
+          initialCode={`class HomeTheaterFacade {
   constructor(
     private amp: Amplifier,
     private dvd: DvdPlayer,
@@ -106,11 +108,13 @@ class Screen {
     this.screen.down()
   }
 }`}
-        </CodeBlock>
+          language="typescript"
+        />
 
         <h3>Usage</h3>
-        <CodeBlock language="typescript">
-          {`const theater = new HomeTheaterFacade(
+        <CodePlayground
+          label="Usage"
+          initialCode={`const theater = new HomeTheaterFacade(
   new Amplifier(),
   new DvdPlayer(),
   new Projector(),
@@ -119,7 +123,8 @@ class Screen {
 
 theater.watchMovie('The Matrix')
 // Client code is shielded from complex subsystem interactions`}
-        </CodeBlock>
+          language="typescript"
+        />
       </div>
 
       <div className="pattern-section">

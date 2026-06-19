@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import CodeBlock from '../../components/CodeBlock'
+import CodePlayground from '../../components/CodePlayground'
 import UmlDiagram from '../../components/UmlDiagram'
 
 export default function ProxyPattern() {
@@ -54,25 +54,30 @@ class Client {
         <h2>Code Example</h2>
 
         <h3>Subject Interface</h3>
-        <CodeBlock language="typescript">
-          {`interface Database {
+        <CodePlayground
+          label="Subject Interface"
+          initialCode={`interface Database {
   query(sql: string): Promise<string[]>
 }`}
-        </CodeBlock>
+          language="typescript"
+        />
 
         <h3>Real Subject</h3>
-        <CodeBlock language="typescript">
-          {`class RealDatabase implements Database {
+        <CodePlayground
+          label="Real Subject"
+          initialCode={`class RealDatabase implements Database {
   async query(sql: string): Promise<string[]> {
     console.log(\`Executing query: \${sql}\`)
     return ['result1', 'result2']
   }
 }`}
-        </CodeBlock>
+          language="typescript"
+        />
 
         <h3>Proxy</h3>
-        <CodeBlock language="typescript">
-          {`class DatabaseProxy implements Database {
+        <CodePlayground
+          label="Proxy"
+          initialCode={`class DatabaseProxy implements Database {
   private realDatabase: RealDatabase | null = null
   private isAuthenticated: boolean = false
 
@@ -101,18 +106,21 @@ class Client {
     return this.realDatabase.query(sql)
   }
 }`}
-        </CodeBlock>
+          language="typescript"
+        />
 
         <h3>Usage</h3>
-        <CodeBlock language="typescript">
-          {`async function main() {
+        <CodePlayground
+          label="Usage"
+          initialCode={`async function main() {
   const db = new DatabaseProxy('admin', 'secret')
   const results = await db.query('SELECT * FROM users')
   console.log(results) // ['result1', 'result2']
 }
 
 main() // Lazy initialization and access control handled by proxy`}
-        </CodeBlock>
+          language="typescript"
+        />
       </div>
 
       <div className="pattern-section">

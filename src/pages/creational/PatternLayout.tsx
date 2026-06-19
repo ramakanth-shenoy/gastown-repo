@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import CodePlayground from '../../components/CodePlayground'
 import './PatternLayout.css'
 
 interface PatternPageProps {
@@ -54,12 +55,12 @@ export default function PatternLayout({
           </h2>
           <div className="code-stack">
             {code.map(({ label, source }) => (
-              <figure key={label} className="code-figure">
-                <figcaption className="code-label">{label}</figcaption>
-                <pre className="code-block">
-                  <code>{source}</code>
-                </pre>
-              </figure>
+              <CodePlayground
+                key={label}
+                label={label}
+                initialCode={source}
+                language="typescript"
+              />
             ))}
           </div>
         </section>

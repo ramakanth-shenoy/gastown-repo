@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import CodeBlock from '../../components/CodeBlock'
+import CodePlayground from '../../components/CodePlayground'
 import UmlDiagram from '../../components/UmlDiagram'
 
 export default function BridgePattern() {
@@ -55,26 +55,31 @@ class ConcreteImplementorB implements Implementor {
         <h2>Code Example</h2>
 
         <h3>Implementor Interface</h3>
-        <CodeBlock language="typescript">
-          {`interface Color {
+        <CodePlayground
+          label="Implementor Interface"
+          initialCode={`interface Color {
   fill(): string
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Concrete Implementations</h3>
-        <CodeBlock language="typescript">
-          {`class Red implements Color {
+        <CodePlayground
+          label="Concrete Implementations"
+          initialCode={`class Red implements Color {
   fill(): string { return 'Applying red color' }
 }
 
 class Blue implements Color {
   fill(): string { return 'Applying blue color' }
 }`}
-        </CodeBlock>
+          language="typescript"
+        />
 
         <h3>Abstraction</h3>
-        <CodeBlock language="typescript">
-          {`abstract class Shape {
+        <CodePlayground
+          label="Abstraction"
+          initialCode={`abstract class Shape {
   protected color: Color
 
   constructor(color: Color) {
@@ -94,18 +99,20 @@ class Square extends Shape {
   draw(): string {
     return \`Drawing a square - \${this.color.fill()}\`
   }
-}
-`}
-        </CodeBlock>
+}`}
+          language="typescript"
+        />
 
         <h3>Usage</h3>
-        <CodeBlock language="typescript">
-          {`const redCircle = new Circle(new Red())
+        <CodePlayground
+          label="Usage"
+          initialCode={`const redCircle = new Circle(new Red())
 console.log(redCircle.draw()) // Drawing a circle - Applying red color
 
 const blueSquare = new Square(new Blue())
 console.log(blueSquare.draw()) // Drawing a square - Applying blue color`}
-        </CodeBlock>
+          language="typescript"
+        />
       </div>
 
       <div className="pattern-section">
